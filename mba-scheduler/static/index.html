@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MBA Timetable Scheduler</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <header class="app-header">
+        <div class="header-container">
+            <div class="logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                <h1>Scheduler Pro</h1>
+            </div>
+            <button id="btn-how-to-use" class="btn btn-secondary">How to Use</button>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <section class="card">
+            <div class="card-header">
+                <h2>1. Setup Data</h2>
+                <p>Provide the requirements for your schedule.</p>
+            </div>
+            
+            <div class="card-body">
+                <div class="action-group">
+                    <div class="action-text">
+                        <h3>Download Template</h3>
+                        <p>Get a blank Excel file with the correct column headers and example rows to fill in.</p>
+                    </div>
+                    <button id="btn-download" class="btn btn-primary">Download Template</button>
+                </div>
+
+                <hr class="divider">
+
+                <div class="action-group">
+                    <div class="action-text">
+                        <h3>Upload Completed File</h3>
+                        <p>Upload your filled Excel template to validate the data.</p>
+                    </div>
+                    
+                    <div class="upload-container">
+                        <div class="input-group">
+                            <label for="file-upload" class="input-label">
+                                Select Excel File
+                                <span class="info-icon" title="Required: .xlsx file format containing Courses, Absences, and Settings sheets. Example: Schedule_Data.xlsx">i</span>
+                            </label>
+                            <input type="file" id="file-upload" accept=".xlsx" class="file-input">
+                        </div>
+                        <button id="btn-upload" class="btn btn-primary" disabled>Upload Data</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Status Area -->
+        <section id="status-area" class="status-card hidden">
+            <div class="status-icon" id="status-icon"></div>
+            <div class="status-content">
+                <h3 id="status-title">Status</h3>
+                <p id="status-message">Message goes here.</p>
+            </div>
+        </section>
+        
+        <!-- Next Steps Area (Hidden initially) -->
+        <section id="next-steps-area" class="card hidden">
+            <div class="card-header">
+                <h2>2. Generate Schedule</h2>
+                <p>Data validated. Ready to process constraints.</p>
+            </div>
+            <div class="card-body">
+                <button id="btn-generate" class="btn btn-primary btn-large" disabled>Generate Timetable (Stage 2)</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- How to Use Modal -->
+    <div id="modal-how-to-use" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>How to Use Scheduler Pro</h2>
+            <div class="modal-body">
+                <ol class="steps-list">
+                    <li>
+                        <strong>Download the Template:</strong>
+                        Click the "Download Template" button to get an Excel file formatted for our system.
+                    </li>
+                    <li>
+                        <strong>Fill in the Data:</strong>
+                        Open the Excel file and fill out the sheets:
+                        <ul>
+                            <li><em>Courses:</em> Map courses to professors and student batches with min/max hours.</li>
+                            <li><em>Absences:</em> Specify dates when professors or batches are unavailable.</li>
+                            <li><em>Settings:</em> Define the term start/end date and working days.</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>Upload and Validate:</strong>
+                        Select your saved Excel file and upload it. The system will check for missing columns or bad data and tell you exactly what to fix.
+                    </li>
+                    <li>
+                        <strong>Generate Schedule:</strong>
+                        Once data is validated, generate the optimal schedule. (Available in next stage).
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/app.js"></script>
+</body>
+</html>

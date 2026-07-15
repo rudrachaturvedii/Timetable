@@ -1,0 +1,338 @@
+:root {
+    --primary-color: #2563eb;
+    --primary-hover: #1d4ed8;
+    --secondary-color: #f1f5f9;
+    --secondary-hover: #e2e8f0;
+    --text-main: #0f172a;
+    --text-muted: #64748b;
+    --bg-main: #f8fafc;
+    --card-bg: #ffffff;
+    --border-color: #e2e8f0;
+    --error-color: #ef4444;
+    --success-color: #10b981;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    line-height: 1.5;
+}
+
+/* Header */
+.app-header {
+    background-color: var(--card-bg);
+    border-bottom: 1px solid var(--border-color);
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.header-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: var(--primary-color);
+}
+
+.logo h1 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-main);
+}
+
+/* Main Content */
+.main-content {
+    max-width: 800px;
+    margin: 3rem auto;
+    padding: 0 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+/* Cards */
+.card, .status-card {
+    background-color: var(--card-bg);
+    border-radius: 12px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.06);
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+}
+
+.card-header {
+    padding: 1.5rem 2rem;
+    border-bottom: 1px solid var(--border-color);
+    background-color: #fafafa;
+}
+
+.card-header h2 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+}
+
+.card-header p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+.card-body {
+    padding: 2rem;
+}
+
+.action-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.action-text h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+}
+
+.action-text p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    max-width: 400px;
+}
+
+.divider {
+    border: 0;
+    height: 1px;
+    background-color: var(--border-color);
+    margin: 2rem 0;
+}
+
+/* Buttons */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 1rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: none;
+    font-family: inherit;
+}
+
+.btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.btn-primary:hover:not(:disabled) {
+    background-color: var(--primary-hover);
+}
+
+.btn-secondary {
+    background-color: var(--secondary-color);
+    color: var(--text-main);
+    border: 1px solid var(--border-color);
+}
+
+.btn-secondary:hover:not(:disabled) {
+    background-color: var(--secondary-hover);
+}
+
+.btn-large {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    width: 100%;
+}
+
+/* Form Elements */
+.upload-container {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-end;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.input-label {
+    font-size: 0.9rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.info-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: var(--text-muted);
+    color: white;
+    font-size: 10px;
+    font-weight: bold;
+    cursor: help;
+}
+
+.file-input {
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 0.4rem;
+    font-family: inherit;
+    font-size: 0.9rem;
+    color: var(--text-main);
+}
+
+/* Status Area */
+.status-card {
+    padding: 1.5rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.status-card.error {
+    border-left: 4px solid var(--error-color);
+    background-color: #fef2f2;
+}
+
+.status-card.success {
+    border-left: 4px solid var(--success-color);
+    background-color: #f0fdf4;
+}
+
+.status-icon {
+    font-size: 1.5rem;
+    margin-top: 0.1rem;
+}
+
+.status-card.error .status-icon { color: var(--error-color); }
+.status-card.success .status-icon { color: var(--success-color); }
+
+.status-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+}
+
+.status-message {
+    font-size: 0.95rem;
+    color: var(--text-main);
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 100;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal.active {
+    display: flex;
+}
+
+.modal-content {
+    background-color: var(--card-bg);
+    border-radius: 12px;
+    width: 90%;
+    max-width: 500px;
+    padding: 2rem;
+    position: relative;
+    box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);
+}
+
+.close-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--text-muted);
+    cursor: pointer;
+}
+
+.close-btn:hover {
+    color: var(--text-main);
+}
+
+.modal h2 {
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+}
+
+.steps-list {
+    padding-left: 1.5rem;
+}
+
+.steps-list li {
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+    color: var(--text-muted);
+}
+
+.steps-list strong {
+    color: var(--text-main);
+    display: block;
+    margin-bottom: 0.25rem;
+}
+
+.steps-list ul {
+    margin-top: 0.5rem;
+    padding-left: 1.5rem;
+    list-style-type: circle;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .action-group {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+    
+    .upload-container {
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+    }
+    
+    .btn {
+        width: 100%;
+    }
+}
